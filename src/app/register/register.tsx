@@ -18,13 +18,16 @@ export default function RegisterPage() {
     district: "",
   });
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
 
-    if(name === "region") {
-      setForm({...form, region: value, district: ""})
+    if (name === "region") {
+      setForm({ ...form, region: value, district: "" });
+    } else {
+      setForm({ ...form, [name]: value });
     }
   };
+
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
